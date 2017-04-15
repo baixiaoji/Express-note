@@ -89,7 +89,7 @@ console.log(obj)
 /* 2 */
 /***/ (function(module, exports) {
 
-module.exports.a = "aaa"
+module.exports.a = "123"
 
 /***/ })
 /******/ ]);
