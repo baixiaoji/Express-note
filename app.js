@@ -20,11 +20,10 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
+// 静态资源的设定
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/student', function(req,res,next){
-  res.send("Hello baixiaoji")
-});
+//中间件的设定
 app.use('/', index);
 app.use('/users', users);
 
