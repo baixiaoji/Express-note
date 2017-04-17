@@ -1,11 +1,29 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/css/style.css' />
+    <meta charset="utf-8">
+    <meta property="qc:admins" content="4562636714562571563145" />
+    <title>便利贴</title>
+    <link rel="stylesheet" href="/css/index.css">
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <div id="header">
+      <a class="add-note" title="添加笔记" href="#"><span class="fa fa-plus"></span> 添加</a>
+      <ul class="user-area">
+      
+          <li><a class="login" title="GitHub登录" href="/auth/github"> GitHub登录</a>
+          </li>
+          <li><a class="login" title="饥人谷登录" href="/auth/jirengu">饥人谷登录</a>
+          </li>
+      
+      </ul>
+
+    </div>
+    <div id="content">
+
+    </div>
+
+    <div class="stars"></div>
+    <script src="/js/index.js"></script>
   </body>
 </html>
