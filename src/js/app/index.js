@@ -1,3 +1,3 @@
-var obj = require("../mod/b.js")
+var obj = require("../mod/toast.js")
 
 console.log(obj)
