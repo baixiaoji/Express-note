@@ -1,3 +1,15 @@
-var obj = require("../mod/toast.js")
+require('less/index.less');
 
-console.log(obj)
+var NoteManager = require('mod/note-manager.js').NoteManager;
+var Event = require('mod/event.js');
+var WaterFall = require('mod/waterfall.js');
+
+NoteManager.load();
+
+$('.add-note').on('click', function() {
+  NoteManager.add();
+})
+
+Event.on('waterfall', function(){
+  WaterFall.init($('#content'));
+})

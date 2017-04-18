@@ -1,3 +1,105 @@
+html,
+body {
+  margin: 0;
+  height: 100%;
+}
+ul,
+li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+body {
+  font: 14px/1.4 'Arial';
+}
+a {
+  text-decoration: none;
+  color: #fff;
+}
+#header {
+  height: 30px;
+  font-size: 12px;
+}
+#header a {
+  display: block;
+  font-size: 12px;
+  margin-top: 6px;
+}
+#header .user-area {
+  padding-right: 16px;
+  float: right;
+}
+#header .user-area li {
+  float: left;
+  margin-left: 5px;
+}
+#header .user-area li span {
+  color: #fff;
+  display: block;
+  margin-top: 6px;
+}
+#header .user-area img {
+  height: 18px;
+  margin-top: 5px;
+  border-radius: 50%;
+}
+#header .setting {
+  float: right;
+  margin-left: 9px;
+  display: none;
+}
+#header .add-note {
+  float: left;
+  margin-left: 16px;
+  border: 1px solid #fff;
+  border-radius: 4px;
+  padding: 2px 4px;
+}
+#header .login {
+  float: right;
+  margin-left: 16px;
+}
+#content {
+  position: relative;
+  height: calc(70%);
+}
+@-webkit-keyframes move-twink-back {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -10000px 5000px;
+  }
+}
+@keyframes move-twink-back {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -10000px 5000px;
+  }
+}
+.stars,
+.twinkling {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.stars {
+  background: #000 url(http://7xpvnv.com2.z0.glb.qiniucdn.com/ba25c630-1c91-4ac1-a3de-65555d78c147.png) repeat top center;
+  z-index: -2;
+}
+.twinkling {
+  background: transparent url(http://7xpvnv.com2.z0.glb.qiniucdn.com/493b97e6-c499-4b41-a26b-8942873615b0.png) repeat top center;
+  z-index: -1;
+  -webkit-animation: move-twink-back 200s linear infinite;
+  animation: move-twink-back 200s linear infinite;
+}
 .toast {
   position: fixed;
   left: 50%;
@@ -10,4 +112,63 @@
   border-radius: 3px;
   box-shadow: 0px 0px 3px 1px rgba(255, 255, 255, 0.6);
   display: none;
+}
+.note {
+  position: absolute;
+  color: #333;
+  width: 160px;
+  margin: 20px 10px;
+  transition: all 0.5s;
+}
+.note .note-head {
+  height: 20px;
+  background-color: #ea9b35;
+  cursor: move;
+}
+.note .note-head:hover .delete {
+  opacity: 1;
+}
+.note .note-head:before {
+  position: absolute;
+  left: 50%;
+  top: -11px;
+  margin-left: -32px;
+  content: ' ';
+  display: block;
+  width: 64px;
+  height: 18px;
+  background: #35bba3;
+}
+.note .note-head:after {
+  position: absolute;
+  left: 50%;
+  margin-left: 32px;
+  top: -11px;
+  z-index: -1;
+  content: '';
+  display: block;
+  width: 0;
+  height: 0;
+  border-left: 5px solid #299683;
+  border-top: 18px solid transparent;
+}
+.note .note-ct {
+  padding: 10px;
+  background-color: #efb04e;
+  outline: none;
+}
+.note .delete {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  font-size: 12px;
+  color: #fff;
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity .3s;
+}
+.draggable {
+  opacity: 0.8;
+  cursor: move;
+  transition: none;
 }
