@@ -1,5 +1,6 @@
 var webpack = require('webpack')
 var path = require('path')
+// 导入一些webpack不是默认自带的插件
 var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var autoprefixer = require('autoprefixer')
 
@@ -27,10 +28,12 @@ module.exports = {
         }
     },
     plugins: [
+        // 给 $ 作为一个变量 给到每一个 module 里
         new webpack.ProvidePlugin({
             // 给每一个模块引入了 jQuery
             $: "jquery"
         }),
+        // ExtractTextPlugin 将css从 bundles中抽离出来合到另一个文件中
         new ExtractTextPlugin("css/index.css"),
         new webpack.LoaderOptionsPlugin({
             options: {
