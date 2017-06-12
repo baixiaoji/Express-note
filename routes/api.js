@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-
+var Note = require("../model/note")
 /* GET users listing. */
 router.get('/notes', function (req, res, next) {
     res.send('nihc');
