@@ -65,7 +65,7 @@ Note.prototype = {
         $noteHead = $note.find('.note-head'),
         $noteCt = $note.find('.note-ct'),
         $delete = $note.find('.delete');
-
+        beforeContent =  $noteCt.html()
     $delete.on('click', function(){
       self.delete();
     })
@@ -105,6 +105,8 @@ Note.prototype = {
 
   edit: function (msg) {
     var self = this;
+    var beforeNoteCont = noteCont.data('before');
+    console.log(beforeNoteCont)
     $.post('/api/notes/edit',{
         id: this.id,
         note: msg
@@ -112,6 +114,7 @@ Note.prototype = {
       if(ret.status === 0){
         Toast('update success');
       }else{
+        $noteCt.html(beforeNoteCont)
         Toast(ret.errorMsg);
       }
     })
