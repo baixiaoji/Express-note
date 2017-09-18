@@ -1,3 +1,18 @@
+.box-shallow(@color:#f6f6f6){
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 50px;
+  overflow: hidden;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2),
+  0 8px 0 -3px @color, 
+  0 9px 1px -3px rgba(0, 0, 0, 0.2), 
+  0 16px 0 -6px @color, 
+  0 17px 2px -6px rgba(0, 0, 0, 0.2);
+}
+
 .note{
   position: absolute;;
   color: #333;
@@ -45,8 +60,93 @@
     padding: 10px;
     background-color: #efb04e;
     outline: none;
+    
+    &.one:before{
+      content: '';
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      height: 50px;
+      overflow: hidden;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2),
+      0 8px 0 -3px #efb04e, 
+      0 9px 1px -3px rgba(0, 0, 0, 0.2), 
+      0 16px 0 -6px #efb04e, 
+      0 17px 2px -6px rgba(0, 0, 0, 0.2);
+    }
+    &.two:before{
+      content: '';
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      height: 50px;
+      overflow: hidden;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2),
+      0 8px 0 -3px #e672a2, 
+      0 9px 1px -3px rgba(0, 0, 0, 0.2), 
+      0 16px 0 -6px #e672a2, 
+      0 17px 2px -6px rgba(0, 0, 0, 0.2);
+    }
+    &.three:before{
+      content: '';
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      height: 50px;
+      overflow: hidden;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2),
+      0 8px 0 -3px #f2eb67, 
+      0 9px 1px -3px rgba(0, 0, 0, 0.2), 
+      0 16px 0 -6px #f2eb67, 
+      0 17px 2px -6px rgba(0, 0, 0, 0.2);
+    }
+    &.four:before{
+      content: '';
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      height: 50px;
+      overflow: hidden;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2),
+      0 8px 0 -3px #d15a39, 
+      0 9px 1px -3px rgba(0, 0, 0, 0.2), 
+      0 16px 0 -6px #d15a39, 
+      0 17px 2px -6px rgba(0, 0, 0, 0.2);
+    }
+    &.five:before{
+      content: '';
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      height: 50px;
+      overflow: hidden;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2),
+      0 8px 0 -3px #d0d25c, 
+      0 9px 1px -3px rgba(0, 0, 0, 0.2), 
+      0 16px 0 -6px #d0d25c, 
+      0 17px 2px -6px rgba(0, 0, 0, 0.2);
+    }
+    &.six:before{
+      content: '';
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      height: 50px;
+      overflow: hidden;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2),
+      0 8px 0 -3px #5591d2, 
+      0 9px 1px -3px rgba(0, 0, 0, 0.2), 
+      0 16px 0 -6px #5591d2, 
+      0 17px 2px -6px rgba(0, 0, 0, 0.2);
+    }
   }
-
+  
   .delete {
     position: absolute;
     top: 4px;

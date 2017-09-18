@@ -100,19 +100,6 @@ a {
   -webkit-animation: move-twink-back 200s linear infinite;
   animation: move-twink-back 200s linear infinite;
 }
-.toast {
-  position: fixed;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-  transform: translateX(-50%);
-  bottom: 20px;
-  color: #D15A39;
-  background: #fff;
-  padding: 5px 10px;
-  border-radius: 3px;
-  box-shadow: 0px 0px 3px 1px rgba(255, 255, 255, 0.6);
-  display: none;
-}
 .note {
   position: absolute;
   color: #333;
@@ -157,6 +144,66 @@ a {
   background-color: #efb04e;
   outline: none;
 }
+.note .note-ct.one:before {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 50px;
+  overflow: hidden;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 8px 0 -3px #efb04e, 0 9px 1px -3px rgba(0, 0, 0, 0.2), 0 16px 0 -6px #efb04e, 0 17px 2px -6px rgba(0, 0, 0, 0.2);
+}
+.note .note-ct.two:before {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 50px;
+  overflow: hidden;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 8px 0 -3px #e672a2, 0 9px 1px -3px rgba(0, 0, 0, 0.2), 0 16px 0 -6px #e672a2, 0 17px 2px -6px rgba(0, 0, 0, 0.2);
+}
+.note .note-ct.three:before {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 50px;
+  overflow: hidden;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 8px 0 -3px #f2eb67, 0 9px 1px -3px rgba(0, 0, 0, 0.2), 0 16px 0 -6px #f2eb67, 0 17px 2px -6px rgba(0, 0, 0, 0.2);
+}
+.note .note-ct.four:before {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 50px;
+  overflow: hidden;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 8px 0 -3px #d15a39, 0 9px 1px -3px rgba(0, 0, 0, 0.2), 0 16px 0 -6px #d15a39, 0 17px 2px -6px rgba(0, 0, 0, 0.2);
+}
+.note .note-ct.five:before {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 50px;
+  overflow: hidden;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 8px 0 -3px #d0d25c, 0 9px 1px -3px rgba(0, 0, 0, 0.2), 0 16px 0 -6px #d0d25c, 0 17px 2px -6px rgba(0, 0, 0, 0.2);
+}
+.note .note-ct.six:before {
+  content: '';
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 50px;
+  overflow: hidden;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 8px 0 -3px #5591d2, 0 9px 1px -3px rgba(0, 0, 0, 0.2), 0 16px 0 -6px #5591d2, 0 17px 2px -6px rgba(0, 0, 0, 0.2);
+}
 .note .delete {
   position: absolute;
   top: 4px;
@@ -171,4 +218,17 @@ a {
   opacity: 0.8;
   cursor: move;
   transition: none;
+}
+.toast {
+  position: fixed;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+  transform: translateX(-50%);
+  top: 20px;
+  color: #D15A39;
+  background: #fff;
+  padding: 5px 10px;
+  border-radius: 3px;
+  box-shadow: 0px 0px 3px 1px rgba(255, 255, 255, 0.6);
+  display: none;
 }
