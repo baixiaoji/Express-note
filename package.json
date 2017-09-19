@@ -5,7 +5,7 @@
   "scripts": {
     "start": "node ./bin/www",
     "webpack": "webpack --config src/webpack.config.js",
-    "watch": "onchange src/**/*.js -- npm run webpack"
+    "watch": "onchange src/**/*.js -- npm run webpack --colors"
   },
   "dependencies": {
     "body-parser": "~1.17.1",

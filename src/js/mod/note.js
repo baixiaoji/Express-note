@@ -72,6 +72,7 @@ Note.prototype = {
 
     //contenteditable没有 change 事件，所有这里做了模拟通过判断元素内容变动，执行 save
     $noteCt.on('focus', function() {
+     
       if($noteCt.html()=='input here') $noteCt.html('');
       $noteCt.data('before', $noteCt.html());
     }).on('blur paste', function() {
@@ -105,8 +106,7 @@ Note.prototype = {
 
   edit: function (msg) {
     var self = this;
-    var beforeNoteCont = noteCont.data('before');
-    console.log(beforeNoteCont)
+    
     $.post('/api/notes/edit',{
         id: this.id,
         note: msg
@@ -114,7 +114,8 @@ Note.prototype = {
       if(ret.status === 0){
         Toast('update success');
       }else{
-        $noteCt.html(beforeNoteCont)
+        self.$note.find('.note-ct').html(self.opts.context)
+        // $noteCt.html(beforeNoteCont)
         Toast(ret.errorMsg);
       }
     })
