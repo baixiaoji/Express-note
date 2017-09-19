@@ -23,12 +23,12 @@ var Note = sequelize.define('note', {
     username:{
         type:Sequelize.STRING
     },
-    createAt:{
+    createdAt:{
         type:Sequelize.STRING
     }
 });
 //清空数据和重建数据库
-// Note.sync({force:true})
+Note.sync({force:true})
 // //  插入表格&查询
 // Note.sync().then(function () {
 //     // Table created

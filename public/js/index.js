@@ -235,10 +235,13 @@ var NoteManager = (function(){
     $.get('/api/notes')
       .done(function(ret){
         if(ret.status == 0){
-          $.each(ret.data, function(idx, article) {
+          console.log(ret.data)
+          $.each(ret.data, function(idx, el) {
               new Note({
-                id: article.id,
-                context: article.text
+                id: el.id,
+                context: el.text,
+                time:el.createdAt,
+                username:el.username
               });
           });
 
@@ -307,6 +310,7 @@ Note.prototype = {
   },
 
   initOpts: function (opts) {
+    this.defaultOpts.time = new Date().toLocaleString('chinese',{hour12:false})
     this.opts = $.extend({}, this.defaultOpts, opts||{});
     if(this.opts.id){
        this.id = this.opts.id;
@@ -314,14 +318,16 @@ Note.prototype = {
   },
 
   createNote: function () {
-    var time = new Date().toLocaleString('chinese',{hour12:false})
+    // console.log("options",this.opts)
     var tpl =  '<div class="note">'
-              + '<div class="note-head"><span class="delete fa fa-close"></span></div>'
+              + '<div class="note-head"><span class="username"></span><span class="delete fa fa-close"></span></div>'
               + '<div class="note-ct" contenteditable="true"></div>'
-              + "<div class='note-time'>"+time+"</div>"
+              + "<div class='note-time'></div>"
               +'</div>';
     this.$note = $(tpl);
     this.$note.find('.note-ct').html(this.opts.context);
+    this.$note.find(".note-time").html(this.opts.time)
+    this.$note.find(".username").html(this.opts.username)
     this.opts.$ct.append(this.$note);
     if(!this.id)  this.$note.css('left', '10px');  //新增放到右边
   },
@@ -408,7 +414,7 @@ Note.prototype = {
   add: function (msg){
     console.log('addd...');
     var self = this;
-    $.post('/api/notes/add', {note: msg})
+    $.post('/api/notes/add', {note: msg,time:self.opts.time})
       .done(function(ret){
         if(ret.status === 0){
           Toast('add success');

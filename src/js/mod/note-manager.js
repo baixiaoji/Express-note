@@ -10,10 +10,13 @@ var NoteManager = (function(){
     $.get('/api/notes')
       .done(function(ret){
         if(ret.status == 0){
-          $.each(ret.data, function(idx, article) {
+          console.log(ret.data)
+          $.each(ret.data, function(idx, el) {
               new Note({
-                id: article.id,
-                context: article.text
+                id: el.id,
+                context: el.text,
+                time:el.createdAt,
+                username:el.username
               });
           });
 
