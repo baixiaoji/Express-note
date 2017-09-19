@@ -307,6 +307,7 @@ Note.prototype = {
     $ct: $('#content').length>0?$('#content'):$('body'),  //默认存放 Note 的容器
     time:new Date().toLocaleString('chinese',{hour12:false}),
     context: 'input here',  //Note 的内容
+    username:"Me"
   },
 
   initOpts: function (opts) {

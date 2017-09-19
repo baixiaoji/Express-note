@@ -11,6 +11,7 @@ li {
 }
 body {
   font: 14px/1.4 'Arial';
+  background: #000 url(http://7xpvnv.com2.z0.glb.qiniucdn.com/ba25c630-1c91-4ac1-a3de-65555d78c147.png) repeat top center;
 }
 a {
   text-decoration: none;
@@ -107,42 +108,46 @@ a {
   margin: 20px 10px;
   transition: all 0.5s;
 }
+.note:hover {
+  -webkit-transform: translateY(10px);
+  transform: translateY(10px);
+}
 .note .note-head {
   height: 30px;
   background-color: #ea9b35;
   cursor: move;
+  /*&:before{
+      position: absolute;
+      left: 50%;
+      top: -11px;
+      margin-left: -32px;
+      content: ' ';
+      display: block;
+      width: 64px;
+      height: 18px;
+      background: #35bba3;
+    }*/
+  /*&:after {
+      position: absolute;
+      left: 50%;
+      margin-left: 32px;
+      top: -11px;
+      z-index: -1;
+      content: '';
+      display: block;
+      width: 0;
+      height: 0;
+      border-left: 5px solid #299683;
+      border-top: 18px solid transparent;
+    }*/
 }
 .note .note-head:hover .delete {
   opacity: 1;
 }
-.note .note-head:before {
-  position: absolute;
-  left: 50%;
-  top: -11px;
-  margin-left: -32px;
-  content: ' ';
-  display: block;
-  width: 64px;
-  height: 18px;
-  background: #35bba3;
-}
-.note .note-head:after {
-  position: absolute;
-  left: 50%;
-  margin-left: 32px;
-  top: -11px;
-  z-index: -1;
-  content: '';
-  display: block;
-  width: 0;
-  height: 0;
-  border-left: 5px solid #299683;
-  border-top: 18px solid transparent;
-}
 .note .note-head .username {
   display: inline-block;
   max-width: 160px;
-  color: #565656;
+  color: #eee;
   padding: 5px;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -219,7 +224,7 @@ a {
 .note .note-time {
   text-align: right;
   padding-right: 10px;
-  color: #777;
+  color: #eee;
 }
 .note .delete {
   position: absolute;
