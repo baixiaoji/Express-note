@@ -302,7 +302,8 @@ Note.prototype = {
   defaultOpts: {
     id: '',   //Note的 id
     $ct: $('#content').length>0?$('#content'):$('body'),  //默认存放 Note 的容器
-    context: 'input here'  //Note 的内容
+    time:new Date().toLocaleString('chinese',{hour12:false}),
+    context: 'input here',  //Note 的内容
   },
 
   initOpts: function (opts) {
@@ -313,9 +314,11 @@ Note.prototype = {
   },
 
   createNote: function () {
+    var time = new Date().toLocaleString('chinese',{hour12:false})
     var tpl =  '<div class="note">'
               + '<div class="note-head"><span class="delete fa fa-close"></span></div>'
               + '<div class="note-ct" contenteditable="true"></div>'
+              + "<div class='note-time'>"+time+"</div>"
               +'</div>';
     this.$note = $(tpl);
     this.$note.find('.note-ct').html(this.opts.context);
@@ -327,6 +330,7 @@ Note.prototype = {
     var color = this.colors[Math.floor(Math.random()*6)];
     this.$note.find('.note-head').css('background-color', color[0]);
     this.$note.find('.note-ct').addClass(color[2]).css('background-color', color[1]);
+    this.$note.find(".note-time").css('background-color', color[1])
   },
 
   setLayout: function(){

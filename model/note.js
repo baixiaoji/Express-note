@@ -19,6 +19,12 @@ var Note = sequelize.define('note', {
     },
     uid:{
         type:Sequelize.STRING
+    },
+    username:{
+        type:Sequelize.STRING
+    },
+    createAt:{
+        type:Sequelize.STRING
     }
 });
 //清空数据和重建数据库

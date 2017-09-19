@@ -103,12 +103,12 @@ a {
 .note {
   position: absolute;
   color: #333;
-  width: 160px;
+  width: 200px;
   margin: 20px 10px;
   transition: all 0.5s;
 }
 .note .note-head {
-  height: 20px;
+  height: 30px;
   background-color: #ea9b35;
   cursor: move;
 }
@@ -204,11 +204,15 @@ a {
   overflow: hidden;
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 8px 0 -3px #5591d2, 0 9px 1px -3px rgba(0, 0, 0, 0.2), 0 16px 0 -6px #5591d2, 0 17px 2px -6px rgba(0, 0, 0, 0.2);
 }
+.note .note-time {
+  text-align: right;
+  padding-right: 10px;
+}
 .note .delete {
   position: absolute;
   top: 4px;
   right: 4px;
-  font-size: 12px;
+  font-size: 20px;
   color: #fff;
   cursor: pointer;
   opacity: 0;
