@@ -403,7 +403,7 @@ Note.prototype = {
         note: msg
       }).done(function(ret){
       if(ret.status === 0){
-        Toast('update success');
+        Toast('更新成功');
       }else{
         self.$note.find('.note-ct').html(self.opts.context)
         // $noteCt.html(beforeNoteCont)
@@ -418,7 +418,7 @@ Note.prototype = {
     $.post('/api/notes/add', {note: msg,time:self.opts.time})
       .done(function(ret){
         if(ret.status === 0){
-          Toast('add success');
+          Toast('成功添加');
         }else{
           self.$note.remove();
           Event.fire('waterfall')
@@ -433,7 +433,7 @@ Note.prototype = {
     $.post('/api/notes/delete', {id: this.id})
       .done(function(ret){
         if(ret.status === 0){
-          Toast('delete success');
+          Toast('删除成功');
           self.$note.remove();
           Event.fire('waterfall')
         }else{

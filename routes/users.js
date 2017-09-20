@@ -1,9 +1,21 @@
 var express = require('express');
 var router = express.Router();
+var Note = require("../model/note").Note
 
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-  res.send('respond with a resource');
+router.get('/', function (req, res, next) {
+  var data;
+  if (req.session.user) {
+    data = {
+      isLogin: true,
+      user: req.session.user
+    }
+  } else {
+    data = {
+      isLogin: false
+    }
+  }
+  console.log(data)
+  res.render('index', data);
 });
 
 module.exports = router;
