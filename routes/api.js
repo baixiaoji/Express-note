@@ -65,6 +65,7 @@ router.post("/notes/delete", function (req, res, next) {
 /**
  * 用户注册
  * add user  -->   api/user/add   
+ * login user --> api/user/login
  */
 router.post("/user/add", function (req, res, next) {
     var username = req.body.username
@@ -74,6 +75,8 @@ router.post("/user/add", function (req, res, next) {
         password
     }).then(function(){
         res.send({status:0})
+    }).catch(function () {
+        res.send({ status: 1, errorMsg: "数据库异常或者你没有权限" })
     })
     // if (!req.session || !req.session.user) {
     //     return res.send({ status: 1, errorMsg: '请先登录' })
@@ -91,6 +94,30 @@ router.post("/user/add", function (req, res, next) {
     // }).catch(function () {
     //     res.send({ status: 1, errorMsg: "数据库异常或者你没有权限" })
     // })
+})
+router.post("/user/login", function (req, res, next) {
+    var username = req.body.username
+    var password = req.body.password
+    // console.log(username,password)
+    // console.log("---------------------------")
+    User.findOne({raw:true,where:{username:username}}).then(function(person){
+       // console.log(person)
+        if(person.password === password){
+            req.session.user = {
+                id: person.id,
+                username: person.username,
+                avatar: "",
+                provider: "baiji"
+            };
+            console.log("----------")
+            console.log(req.session.user)
+            res.send({status:0})
+        }else{
+            res.send({ status: 1, errorMsg: "密码错误" })
+        }
+    }).catch(function () {
+        res.send({ status: 1, errorMsg: "没有该用户" })
+    })
 })
 
 module.exports = router;

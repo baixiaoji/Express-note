@@ -20,6 +20,10 @@
   -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
+#form .title {
+  color: #fff;
+  text-align: center;
+}
 #form form {
   height: 100%;
 }

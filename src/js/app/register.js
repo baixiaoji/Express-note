@@ -9,6 +9,8 @@ $("#submit").on("click",function(e){
     .done(function(ret){
         if(ret.status === 0){
             Toast('成功添加');
-        }
+        }else{
+            Toast(ret.errorMsg);
+          }
     })
 })
