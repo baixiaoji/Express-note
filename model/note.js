@@ -18,7 +18,7 @@ var Note = sequelize.define('note', {
         type: Sequelize.STRING
     },
     uid:{
-        type:Sequelize.STRING
+        type:Sequelize.INTEGER
     },
     username:{
         type:Sequelize.STRING
@@ -28,7 +28,7 @@ var Note = sequelize.define('note', {
     }
 });
 //清空数据和重建数据库
-Note.sync({force:true})
+// Note.sync({force:true})
 // //  插入表格&查询
 // Note.sync().then(function () {
 //     // Table created
@@ -39,6 +39,9 @@ Note.sync({force:true})
 //     Note.findAll({raw:true}).then(function (notes) {
 //         console.log(notes);
 //     });
+// });
+// Note.findAll({raw:true}).then(function (notes) {
+//     console.log(notes);
 // });
 
 module.exports.Note = Note;
