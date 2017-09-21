@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var Note = require("../model/note").Note
 
-router.get('/', function (req, res, next) {
+router.get('/register', function (req, res, next) {
   // var data;
   // if (req.session.user) {
   //   data = {
@@ -15,8 +15,8 @@ router.get('/', function (req, res, next) {
   //   }
   // }
   // console.log(data)
-  res.render('login', {
-    title:"登录"
+  res.render('register', {
+    title:"注册"
   });
 });
 

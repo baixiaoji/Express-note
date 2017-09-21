@@ -7,7 +7,8 @@ var autoprefixer = require('autoprefixer')
 module.exports = {
     entry: {
         index:path.join(__dirname, "js/app/index.js"),
-        login:path.join(__dirname,"js/app/login.js")
+        login:path.join(__dirname,"js/app/login.js"),
+        register:path.join(__dirname,"js/app/register.js"),
     },
     output: {
         path: path.join(__dirname, "../public"),

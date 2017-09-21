@@ -54,5 +54,8 @@ var User = sequelize.define('user', {
 //         console.log(users);
 //     });
 // });
+User.findAll({raw:true}).then(function (users) {
+            console.log(users);
+        });
 
 module.exports.User = User;
