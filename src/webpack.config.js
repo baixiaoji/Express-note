@@ -5,10 +5,13 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin')
 var autoprefixer = require('autoprefixer')
 
 module.exports = {
-    entry: path.join(__dirname, "js/app/index.js"),
+    entry: {
+        index:path.join(__dirname, "js/app/index.js"),
+        login:path.join(__dirname,"js/app/login.js")
+    },
     output: {
         path: path.join(__dirname, "../public"),
-        filename: "js/index.js"
+        filename: "js/[name].js"
     },
     module: {
         rules: [{
@@ -34,14 +37,21 @@ module.exports = {
             $: "jquery"
         }),
         // ExtractTextPlugin 将css从 bundles中抽离出来合到另一个文件中
-        new ExtractTextPlugin("css/index.css"),
+        new ExtractTextPlugin("css/[name].css"),
         new webpack.LoaderOptionsPlugin({
             options: {
                 postcss: [
                     autoprefixer(),
                 ]
             }
-        })
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
+            // vendor 的意义和之前相同
+            // manifest文件是将每次打包都会更改的东西单独提取出来，保证没有更改的代码无需重新打包，这样可以加快打包速度
+              names: ['vendor', 'manifest'],
+              // 配合 manifest 文件使用
+              minChunks: Infinity
+            })
         // new webpack.optimize.UglifyJsPlugin({
         //     compress: {
         //         warnings: false,

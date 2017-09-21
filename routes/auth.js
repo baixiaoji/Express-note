@@ -29,13 +29,13 @@ passport.use(new GitHubStrategy({
 ));
 
 passport.use(new qqStrategy({
-  clientID: "1106346181",
-  clientSecret: "HaqK6QGmobvYkQ2k",
-  callbackURL: "http://127.0.0.1:3000/auth/qq/callback"
+  clientID: "101430652",
+  clientSecret: "cbff126d70f86ddba687d24544cb7dd6",
+  callbackURL: "http://localhost:3000/auth/qq/callback"
 },
   function (accessToken, refreshToken, profile, done) {
     //User.findOrCreate({ qqId: profile.id }, function (err, user) {
-    return done(err, user);
+    done(null, profile);
     //});
   }
 ));
@@ -61,20 +61,19 @@ router.get('/github/callback',
   });
 
 
-router.get('/auth/qq',
-  passport.authenticate('qq'),
-  function (req, res) {
-    // The request will be redirected to qq for authentication, so this
-    // function will not be called.
-  });
+router.get('/qq',
+  passport.authenticate('qq'));
 
-router.get('/auth/qq/callback',
+router.get('/qq/callback',
   passport.authenticate('qq', { failureRedirect: '/login' }),
   function (req, res) {
+    console.log("-----4545--------------")
+    console.log(req.user)
+    console.log("---------454545----------")
     req.session.user = {
       id: req.user.id,
-      username: req.user.displayName || req.user.username,
-      avatar: req.user._json.avatar_url,
+      username: req.user._json.nickname || req.user.username,
+      avatar: req.user._json.avatar_url || req.user._json.figureurl_qq_1,
       provider: req.user.provider
     };
     // Successful authentication, redirect home.
