@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta property="qc:admins" content="4562636714562571563145" />
+    <title>个人中心</title>
+    <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.css">
+    <link rel="stylesheet" href="/css/index.css">
+  </head>
+  <body>
+        <% if (isLogin){ %>
+    <div id="header">
+      <a class="add-note" title="添加笔记" href="#"><span class="fa fa-plus"></span> 添加</a>
+      <ul class="user-area">
+          <li><img class="" src="<%= user.avatar %>" alt=""></li>
+          <li><span title="<%= user.username %>"><%= user.username %></span></li>
+          <li><span class="line"> | </span> </li>
+          <li><a class="logout" href="/auth/logout">注销</a></li>
+      </ul>
+
+    </div>
+    <div id="content">
+
+    </div>
+
+    <div class="stars"></div>
+    <script src="/js/manifest.js"></script>
+    <script src="/js/index.js"></script>
+    <%} else { %>
+        <div class="nologin">
+            请<a href="/login">登录</a>，这个小心思。
+        </div>
+    <% } %>
+    
+  </body>
+</html>

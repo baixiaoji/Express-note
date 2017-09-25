@@ -101,6 +101,18 @@ a {
   -webkit-animation: move-twink-back 200s linear infinite;
   animation: move-twink-back 200s linear infinite;
 }
+.nologin {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 30px;
+}
+.nologin a {
+  color: #ccc;
+}
 .toast {
   position: fixed;
   left: 50%;

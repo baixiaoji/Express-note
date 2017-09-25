@@ -126,7 +126,7 @@ $("#submit").on("click",function(e){
     .done(function(ret){
         if(ret.status === 0){
             Toast('登录成功');
-            location.href = "/"
+            location.href = "/user/"
         }else{
             Toast(ret.errorMsg);
           }
