@@ -115,9 +115,11 @@ function handleBlur($ele,str,callback){
         var inputValue = $(this).val()
         if($.trim(inputValue) === ""){
             Toast(str)
+            console.log($(this))
             $(this).val("")
         }else{
             callback && callback(inputValue)
+            $(this).val("")
         }
     })
 }
