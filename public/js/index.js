@@ -142,11 +142,12 @@ module.exports = EventCenter;
 /***/ }),
 /* 7 */,
 /* 8 */,
-/* 9 */
+/* 9 */,
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function($) {var Toast = __webpack_require__(1).Toast;
-var Note = __webpack_require__(15).Note;
+var Note = __webpack_require__(16).Note;
 var Toast = __webpack_require__(1).Toast;
 var Event = __webpack_require__(5);
 
@@ -194,7 +195,7 @@ module.exports.NoteManager = NoteManager
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function($) {
@@ -254,20 +255,20 @@ module.exports = WaterFall
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function($) {__webpack_require__(6);
 
-var NoteManager = __webpack_require__(9).NoteManager;
+var NoteManager = __webpack_require__(10).NoteManager;
 var Event = __webpack_require__(5);
-var WaterFall = __webpack_require__(10);
+var WaterFall = __webpack_require__(11);
 
 NoteManager.load();
 
@@ -281,12 +282,12 @@ Event.on('waterfall', function(){
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 13 */,
 /* 14 */,
-/* 15 */
+/* 15 */,
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
-/* WEBPACK VAR INJECTION */(function($) {__webpack_require__(11);
+/* WEBPACK VAR INJECTION */(function($) {__webpack_require__(12);
 
 var Toast = __webpack_require__(1).Toast;
 var Event = __webpack_require__(5);
@@ -456,4 +457,4 @@ module.exports.Note = Note;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ })
-],[12]);
+],[13]);

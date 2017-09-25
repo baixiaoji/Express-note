@@ -105,16 +105,50 @@ module.exports = function(module) {
 // removed by extract-text-webpack-plugin
 
 /***/ }),
-/* 9 */,
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+/* WEBPACK VAR INJECTION */(function($) {var Toast = __webpack_require__(1).Toast;
+// 处理失去焦点函数
+function handleBlur($ele,str,callback){
+    $ele.on("blur",function(){
+        var inputValue = $(this).val()
+        if($.trim(inputValue) === ""){
+            Toast(str)
+            $(this).val("")
+        }else{
+            callback && callback(inputValue)
+        }
+    })
+}
+module.exports.handleBlur = handleBlur
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
 /* 10 */,
 /* 11 */,
 /* 12 */,
 /* 13 */,
-/* 14 */
+/* 14 */,
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function($) {__webpack_require__(8);
 var Toast = __webpack_require__(1).Toast;
+var handleBlur = __webpack_require__(9).handleBlur;
+
+function checkUsername(val){
+    $.post("/api/user/checkUsername",{username:val})
+    .done(function(ret){
+        if(ret.status === 0){
+            Toast('该用户名可用');
+        }else{
+            Toast(ret.errorMsg);
+          }
+    })
+}
+handleBlur($(".password"),"密码不能为空")
+handleBlur($(".username"),"用户名不能为空",checkUsername)
 
 $("#submit").on("click",function(e){
     e.preventDefault()
@@ -126,10 +160,12 @@ $("#submit").on("click",function(e){
             Toast('成功添加');
         }else{
             Toast(ret.errorMsg);
+            $("input").val("")
+            $(".username").focus();
           }
     })
 })
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ })
-],[14]);
+],[15]);

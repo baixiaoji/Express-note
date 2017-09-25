@@ -67,6 +67,17 @@ router.post("/notes/delete", function (req, res, next) {
  * add user  -->   api/user/add   
  * login user --> api/user/login
  */
+
+router.post("/user/checkUsername",function(req,res,next){
+    var username = req.body.username
+    User.findOne({raw:true,where:{username:username}}).then((person)=>{
+        if(person){
+            res.send({ status: 1, errorMsg: "该用户名已被注册" })
+        }else{
+            res.send({status:0})
+        }
+    })
+})
 router.post("/user/add", function (req, res, next) {
     var username = req.body.username
     var password = req.body.password
