@@ -57,7 +57,7 @@ router.get('/github/callback',
       avatar: req.user._json.avatar_url,
       provider: req.user.provider
     };
-    res.redirect('/');
+    res.redirect('/user/');
   });
 
 
@@ -77,7 +77,7 @@ router.get('/qq/callback',
       provider: req.user.provider
     };
     // Successful authentication, redirect home.
-    res.redirect('/');
+    res.redirect('/user/');
   });
 
 module.exports = router;
