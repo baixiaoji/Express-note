@@ -5,11 +5,26 @@ var User = require("../model/user").User
 /* GET users listing. */
 router.get('/notes', function (req, res, next) {
     var query = { raw: true }
+    // if (req.session.user) {
+    //     query.where = {
+    //         uid: req.session.user.id
+    //     }
+    // }
+    // console.log("game",query)
+    Note.findAll(query).then(function (notes) {
+        res.send({ status: 0, data: notes })
+    }).catch(function () {
+        res.send({ status: 1, errorMsg: '数据库出错' })
+    })
+});
+router.get('/unotes', function (req, res, next) {
+    var query = { raw: true }
     if (req.session.user) {
         query.where = {
             uid: req.session.user.id
         }
     }
+    console.log("game",query)
     Note.findAll(query).then(function (notes) {
         res.send({ status: 0, data: notes })
     }).catch(function () {

@@ -6,8 +6,8 @@ var Event = require('mod/event.js');
 
 var NoteManager = (function(){
 
-  function load() {
-    $.get('/api/notes')
+  function load(str) {
+    $.get(str)
       .done(function(ret){
         if(ret.status == 0){
           console.log(ret.data)
@@ -28,16 +28,24 @@ var NoteManager = (function(){
       .fail(function(){
         Toast('网络异常');
       });
-
-
   }
+  
+  function allLoad() {
+    load("/api/notes")
+  }
+  function personLoad(){
+    load("/api/unotes")
+  }
+
+
 
   function add(){
     new Note();
   }
 
   return {
-    load: load,
+    load: allLoad,
+    userLoad:personLoad,
     add: add
   }
 

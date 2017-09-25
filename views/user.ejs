@@ -16,6 +16,8 @@
           <li><img class="" src="<%= user.avatar %>" alt=""></li>
           <li><span title="<%= user.username %>"><%= user.username %></span></li>
           <li><span class="line"> | </span> </li>
+          <li><a class="logout" href="/">前往广场</a></li>
+          <li><span class="line"> | </span> </li>
           <li><a class="logout" href="/auth/logout">注销</a></li>
       </ul>
 
@@ -26,7 +28,7 @@
 
     <div class="stars"></div>
     <script src="/js/manifest.js"></script>
-    <script src="/js/index.js"></script>
+    <script src="/js/user.js"></script>
     <%} else { %>
         <div class="nologin">
             请<a href="/login">登录</a>，这个小心思。

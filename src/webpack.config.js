@@ -9,6 +9,7 @@ module.exports = {
         index:path.join(__dirname, "js/app/index.js"),
         login:path.join(__dirname,"js/app/login.js"),
         register:path.join(__dirname,"js/app/register.js"),
+        user:path.join(__dirname,"js/app/user.js")
     },
     output: {
         path: path.join(__dirname, "../public"),

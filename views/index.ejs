@@ -4,19 +4,19 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta property="qc:admins" content="4562636714562571563145" />
-    <title>留言板</title>
+    <title>留言板广场</title>
     <link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.5.0/css/font-awesome.css">
     <link rel="stylesheet" href="/css/index.css">
   </head>
   <body>
     <div id="header">
-      <a class="add-note" title="添加笔记" href="#"><span class="fa fa-plus"></span> 添加</a>
+      <!-- <a class="add-note" title="添加笔记" href="#"><span class="fa fa-plus"></span> 添加</a> -->
       <ul class="user-area">
         <% if (isLogin){ %>
           <li><img class="" src="<%= user.avatar %>" alt=""></li>
           <li><span title="<%= user.username %>"><%= user.username %></span></li>
           <li><span class="line"> | </span> </li>
-          <li><a class="logout" href="/auth/logout">注销</a></li>
+          <li><a class="logout" href="/user/">个人中心</a></li>
         <%} else { %>
           <li><a class="login" title="GitHub登录" href="/auth/github"> GitHub登录</a>
           </li>
