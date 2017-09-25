@@ -70,14 +70,30 @@ router.post("/notes/delete", function (req, res, next) {
 router.post("/user/add", function (req, res, next) {
     var username = req.body.username
     var password = req.body.password
-    User.create({
-        username,
-        password
-    }).then(function(){
-        res.send({status:0})
-    }).catch(function () {
-        res.send({ status: 1, errorMsg: "数据库异常或者你没有权限" })
+    User.findOne({raw:true,where:{username:username}}).then((person)=>{
+        console.log(person)
+        if(person){
+            res.send({ status: 1, errorMsg: "该用户名已被注册" })
+        }else{
+            User.create({
+                username,
+                password
+            }).then(function(){
+                res.send({status:0})
+            }).catch(function () {
+                res.send({ status: 1, errorMsg: "数据库异常或者你没有权限" })
+            })
+        }
     })
+    // User.create({
+    //     username,
+    //     password
+    // }).then(function(){
+    //     res.send({status:0})
+    // }).catch(function () {
+    //     res.send({ status: 1, errorMsg: "数据库异常或者你没有权限" })
+    // })
+
     // if (!req.session || !req.session.user) {
     //     return res.send({ status: 1, errorMsg: '请先登录' })
     // }
