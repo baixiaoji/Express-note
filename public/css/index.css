@@ -11,6 +11,7 @@ li {
 }
 body {
   font: 14px/1.4 'Arial';
+  font-family: "Microsoft YaHei";
   background: #000 url(http://7xpvnv.com2.z0.glb.qiniucdn.com/ba25c630-1c91-4ac1-a3de-65555d78c147.png) repeat top center;
 }
 a {
@@ -18,12 +19,12 @@ a {
   color: #fff;
 }
 #header {
-  height: 30px;
+  height: 40px;
   font-size: 12px;
 }
 #header a {
   display: block;
-  font-size: 12px;
+  font-size: 16px;
   margin-top: 6px;
 }
 #header .user-area {
@@ -38,9 +39,10 @@ a {
   color: #fff;
   display: block;
   margin-top: 6px;
+  font-size: 16px;
 }
 #header .user-area img {
-  height: 18px;
+  height: 25px;
   margin-top: 5px;
   border-radius: 50%;
 }
