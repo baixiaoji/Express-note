@@ -9,7 +9,7 @@ function handleBlur($ele,str,callback){
             $(this).val("")
         }else{
             callback && callback(inputValue)
-            $(this).val("")
+            // $(this).val("")
         }
     })
 }
