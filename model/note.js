@@ -40,8 +40,8 @@ var Note = sequelize.define('note', {
 //         console.log(notes);
 //     });
 // });
-Note.findAll({raw:true}).then(function (notes) {
-    console.log(notes);
-});
+// Note.findAll({raw:true}).then(function (notes) {
+//     console.log(notes);
+// });
 
 module.exports.Note = Note;

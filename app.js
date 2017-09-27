@@ -13,6 +13,7 @@ var api = require('./routes/api');
 var auth = require('./routes/auth');
 var login = require('./routes/login');
 var register = require('./routes/register');
+var admin = require('./routes/admin');
 var app = express();
 
 // view engine setup
@@ -38,6 +39,7 @@ app.use('/auth', auth); //登录
 app.use("/api",api)
 app.use("/login",login)
 app.use("/register",register)
+app.use("/admin",admin)
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   var err = new Error('Not Found');
