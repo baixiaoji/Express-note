@@ -55,11 +55,23 @@ router.post("/notes/edit", function (req, res, next) {
     console.log("edit")
     if(!req.session || !req.session.user){
         return res.send({status: 1, errorMsg: '请先登录'})
-      }
+    }
 
     var uid = req.session.user.id
-    Note.update({ text: req.body.note }, { where: { id: req.body.id, uid: uid } }).then(function () {
-        res.send({ status: 0 })
+    var noteId = req.body.id
+    // can't modify the other people's note
+    Note.findOne({raw:true,where:{id:noteId}}).then(function(item){
+        // console.log("找到的",item)
+        if(item.uid === uid){
+            Note.update({ text: req.body.note }, { where: { id:noteId, uid: uid } }).then(function () {
+                res.send({ status: 0 })
+            }).catch(function () {
+                res.send({ status: 1, errorMsg: "数据库出错" })
+            })
+        }else{
+            res.send({status:1,errorMsg:"不能修改他人便签"})
+        }
+       
     }).catch(function () {
         res.send({ status: 1, errorMsg: "数据库出错" })
     })
@@ -115,16 +127,16 @@ router.post("/user/add", function (req, res, next) {
 router.post("/user/login", function (req, res, next) {
     var username = req.body.username
     var password = req.body.password
-    // console.log(username,password)
-    // console.log("---------------------------")
+   
     User.findOne({raw:true,where:{username:username}}).then(function(person){
-       // console.log(person)
+       console.log(person)
         if(person.password === password){
             req.session.user = {
                 id: person.id,
                 username: person.username,
                 avatar: "",
-                provider: "baiji"
+                provider: "baiji",
+                role:person.role
             };
             console.log("----------")
             console.log(req.session.user)

@@ -55,7 +55,8 @@ router.get('/github/callback',
       id: req.user.id,
       username: req.user.displayName || req.user.username,
       avatar: req.user._json.avatar_url,
-      provider: req.user.provider
+      provider: req.user.provider,
+      role:0
     };
     res.redirect('/user/');
   });

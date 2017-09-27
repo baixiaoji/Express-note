@@ -65,6 +65,8 @@ a {
 #content {
   position: relative;
   height: calc(70%);
+  width: 86%;
+  margin: 0 auto;
 }
 @-webkit-keyframes move-twink-back {
   from {
