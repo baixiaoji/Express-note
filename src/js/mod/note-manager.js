@@ -22,11 +22,12 @@ var NoteManager = (function(){
 
           Event.fire('waterfall');
         }else{
-          Toast(ret.errorMsg);
+          console.log("aaa")
+          Toast(ret.errorMsg,1000,"error");
         }
       })
       .fail(function(){
-        Toast('网络异常');
+        Toast('网络异常',1000,"error");
       });
   }
   

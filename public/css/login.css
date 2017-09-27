@@ -4,12 +4,17 @@
   -webkit-transform: translateX(-50%);
   transform: translateX(-50%);
   top: 20px;
-  color: #D15A39;
+  padding: 8px 16px;
+  color: rgba(0, 0, 0, 0.65);
+  border-radius: 4px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
   background: #fff;
-  padding: 5px 10px;
-  border-radius: 3px;
-  box-shadow: 0px 0px 3px 1px rgba(255, 255, 255, 0.6);
+  display: inline-block;
+  pointer-events: all;
   display: none;
+}
+.toast span {
+  margin-right: 5px;
 }
 h1 {
   padding: 0;

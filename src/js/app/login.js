@@ -13,7 +13,7 @@ $("#submit").on("click",function(e){
             Toast('登录成功');
             location.href = "/user/"
         }else{
-            Toast(ret.errorMsg);
+            Toast(ret.errorMsg,1000,"error");
           }
     })
 })

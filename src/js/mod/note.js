@@ -124,7 +124,8 @@ Note.prototype = {
       }else{
         self.$note.find('.note-ct').html(self.opts.context)
         // $noteCt.html(beforeNoteCont)
-        Toast(ret.errorMsg);
+        console.log("edit 在这里")
+        Toast(ret.errorMsg,1000,"error");
       }
     })
   },
@@ -139,7 +140,7 @@ Note.prototype = {
         }else{
           self.$note.remove();
           Event.fire('waterfall')
-          Toast(ret.errorMsg);
+          Toast(ret.errorMsg,1000,"error");
         }
       });
     //todo
@@ -154,7 +155,7 @@ Note.prototype = {
           self.$note.remove();
           Event.fire('waterfall')
         }else{
-          Toast(ret.errorMsg);
+          Toast(ret.errorMsg,1000,"error");
         }
     });
 

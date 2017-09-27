@@ -8,7 +8,7 @@ function checkUsername(val){
         if(ret.status === 0){
             Toast('该用户名可用');
         }else{
-            Toast(ret.errorMsg);
+            Toast(ret.errorMsg,1000,"error");
           }
     })
 }
@@ -24,7 +24,7 @@ $("#submit").on("click",function(e){
         if(ret.status === 0){
             Toast('成功添加');
         }else{
-            Toast(ret.errorMsg);
+            Toast(ret.errorMsg,1000,"error");
             $("input").val("")
             $(".username").focus();
           }
