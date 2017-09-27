@@ -17,7 +17,7 @@ router.get('/', function (req, res, next) {
   }
   console.log("758--------",data)
   res.render('admin', {
-    title:"登录页面",
+    title:"管理员页面",
     ...data
   });
 });

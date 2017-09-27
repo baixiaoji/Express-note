@@ -82,11 +82,21 @@ router.post("/notes/delete", function (req, res, next) {
     return res.send({status: 1, errorMsg: '请先登录'})
   }
     var uid = req.session.user.id
-    Note.destroy({ where: { id: req.body.id, uid: uid } }).then(function () {
-        res.send({ status: 0 })
+    var noteId = req.body.id
+    Note.findOne({raw:true,where:{id:noteId}}).then(function(item){
+        if(item.uid === uid){
+            Note.destroy({ where: { id: req.body.id, uid: uid } }).then(function () {
+                res.send({ status: 0 })
+            }).catch(function () {
+                res.send({ status: 1, errorMsg: "数据库出错" })
+            })
+        }else{
+            res.send({status:1,errorMsg:"不能删除他人便签"})
+        }
     }).catch(function () {
         res.send({ status: 1, errorMsg: "数据库出错" })
     })
+    
 })
 
 /**
