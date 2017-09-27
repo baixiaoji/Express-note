@@ -69,6 +69,12 @@ router.post("/notes/edit", function (req, res, next) {
             }).catch(function () {
                 res.send({ status: 1, errorMsg: "数据库出错" })
             })
+        }else if(role === 1){
+            Note.update({ text: req.body.note }, { where: { id:noteId, uid: item.uid } }).then(function () {
+                res.send({ status: 0 })
+            }).catch(function () {
+                res.send({ status: 1, errorMsg: "数据库出错" })
+            })
         }else{
             res.send({status:1,errorMsg:"不能修改他人便签"})
         }
