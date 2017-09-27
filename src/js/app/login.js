@@ -11,7 +11,9 @@ $("#submit").on("click",function(e){
     .done(function(ret){
         if(ret.status === 0){
             Toast('登录成功');
-            location.href = "/user/"
+            setTimeout(function(){
+                location.href = "/user/"
+            },1500)
         }else{
             Toast(ret.errorMsg,1000,"error");
           }

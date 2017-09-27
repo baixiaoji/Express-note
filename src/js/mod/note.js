@@ -124,7 +124,7 @@ Note.prototype = {
       }else{
         self.$note.find('.note-ct').html(self.opts.context)
         // $noteCt.html(beforeNoteCont)
-        console.log("edit 在这里")
+        // console.log("edit 在这里")
         Toast(ret.errorMsg,1000,"error");
       }
     })

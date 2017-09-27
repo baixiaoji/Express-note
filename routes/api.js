@@ -58,10 +58,11 @@ router.post("/notes/edit", function (req, res, next) {
     }
 
     var uid = req.session.user.id
+    var role = req.session.user.role
     var noteId = req.body.id
     // can't modify the other people's note
     Note.findOne({raw:true,where:{id:noteId}}).then(function(item){
-        // console.log("找到的",item)
+        console.log("找到的",item)
         if(item.uid === uid){
             Note.update({ text: req.body.note }, { where: { id:noteId, uid: uid } }).then(function () {
                 res.send({ status: 0 })
@@ -83,9 +84,16 @@ router.post("/notes/delete", function (req, res, next) {
   }
     var uid = req.session.user.id
     var noteId = req.body.id
+    var role = req.session.user.role
     Note.findOne({raw:true,where:{id:noteId}}).then(function(item){
         if(item.uid === uid){
             Note.destroy({ where: { id: req.body.id, uid: uid } }).then(function () {
+                res.send({ status: 0 })
+            }).catch(function () {
+                res.send({ status: 1, errorMsg: "数据库出错" })
+            })
+        }else if(role === 1){
+            Note.destroy({ where: { id: req.body.id, uid: item.uid } }).then(function () {
                 res.send({ status: 0 })
             }).catch(function () {
                 res.send({ status: 1, errorMsg: "数据库出错" })
