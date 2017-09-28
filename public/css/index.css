@@ -185,7 +185,7 @@ a {
   opacity: 1;
 }
 .note .note-ct {
-  padding: 10px;
+  padding: 0 10px 10px;
   outline: none;
   color: #757980;
   /* &.one:before{
@@ -291,6 +291,9 @@ a {
 }
 .note .username:before {
   content: '\7559\8A00\4EBA\FF1A';
+}
+.note .hl {
+  color: #e0284f;
 }
 .note .note-time {
   display: block;

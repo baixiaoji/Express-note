@@ -14,7 +14,7 @@
       <ul class="user-area">
         <% if (isLogin){ %>
           <li><img class="" src="<%= user.avatar %>" alt=""></li>
-          <li><span title="<%= user.username %>"><%= user.username %></span></li>
+          <li><span title="<%= user.username %>" class="loginName"><%= user.username %></span></li>
           <li><span class="line"> | </span> </li>
           <li><a class="logout" href="/user/">个人中心</a></li>
         <%} else { %>

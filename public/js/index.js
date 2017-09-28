@@ -333,6 +333,9 @@ Note.prototype = {
     this.$note.find('.note-ct').html(this.opts.context);
     this.$note.find(".note-time").html(this.opts.time)
     this.$note.find(".username").html(this.opts.username)
+    if($(".loginName").text() === this.opts.username ){
+      this.$note.find(".username").addClass("hl")
+    }
     this.opts.$ct.append(this.$note);
     if(!this.id)  this.$note.css('left', '10px');  //新增放到右边
   },
