@@ -291,12 +291,12 @@ var Event = __webpack_require__(2);
 function Note(opts){
   this.initOpts(opts);
   this.createNote();
-  this.setStyle();
+  // this.setStyle();
   this.bindEvent();
 }
 Note.prototype = {
   colors: [
-    ['#ea9b35','#efb04e',"one"], // headColor, containerColor
+    ['#fff','#fff',"one"], // headColor, containerColor
     ['#dd598b','#e672a2',"two"],
     ['#eee34b','#f2eb67',"three"],
     ['#c24226','#d15a39',"four"],
@@ -323,9 +323,11 @@ Note.prototype = {
   createNote: function () {
     // console.log("options",this.opts)
     var tpl =  '<div class="note">'
-              + '<div class="note-head"><span class="username"></span><span class="delete fa fa-close"></span></div>'
+              + '<div class="note-head"><span class="delete fa fa-close"></span></div>'
               + '<div class="note-ct" contenteditable="true"></div>'
-              + "<div class='note-time'></div>"
+              + "<div class='note-info'>"
+              + '<span class="username"></span><span class="note-time"></span>'
+              + "</div>"
               +'</div>';
     this.$note = $(tpl);
     this.$note.find('.note-ct').html(this.opts.context);
@@ -336,7 +338,7 @@ Note.prototype = {
   },
 
   setStyle: function () {
-    var color = this.colors[Math.floor(Math.random()*6)];
+    var color = this.colors[Math.floor(Math.random()*1)];
     this.$note.find('.note-head').css('background-color', color[0]);
     this.$note.find('.note-ct').addClass(color[2]).css('background-color', color[1]);
     this.$note.find(".note-time").css('background-color', color[1])

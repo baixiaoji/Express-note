@@ -12,7 +12,7 @@ li {
 body {
   font: 14px/1.4 'Arial';
   font-family: "Microsoft YaHei";
-  background: #000 url(http://7xpvnv.com2.z0.glb.qiniucdn.com/ba25c630-1c91-4ac1-a3de-65555d78c147.png) repeat top center;
+  background: #f4f4f4 ;
 }
 a {
   text-decoration: none;
@@ -21,6 +21,7 @@ a {
 #header {
   height: 40px;
   font-size: 12px;
+  background: rgba(47, 47, 47, 0.98);
 }
 #header a {
   display: block;
@@ -29,6 +30,7 @@ a {
 }
 #header .user-area {
   padding-right: 16px;
+  padding-top: 2px;
   float: right;
 }
 #header .user-area li {
@@ -96,7 +98,6 @@ a {
   display: block;
 }
 .stars {
-  background: #000 url(http://7xpvnv.com2.z0.glb.qiniucdn.com/ba25c630-1c91-4ac1-a3de-65555d78c147.png) repeat top center;
   z-index: -2;
 }
 .twinkling {
@@ -138,17 +139,22 @@ a {
 .note {
   position: absolute;
   color: #333;
-  width: 200px;
+  width: 215px;
   margin: 20px 10px;
   transition: all 0.5s;
+  background: #fff;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 8px 0 -3px #f6f6f6, 0 9px 1px -3px rgba(0, 0, 0, 0.2), 0 16px 0 -6px #f6f6f6, 0 17px 2px -6px rgba(0, 0, 0, 0.2);
+  /* &:hover {
+    transform: translateY(10px);
+  }*/
 }
-.note:hover {
-  -webkit-transform: translateY(10px);
-  transform: translateY(10px);
+.note:hover .delete {
+  opacity: 1;
 }
 .note .note-head {
   height: 30px;
-  background-color: #ea9b35;
   cursor: move;
   /*&:before{
       position: absolute;
@@ -178,100 +184,137 @@ a {
 .note .note-head:hover .delete {
   opacity: 1;
 }
-.note .note-head .username {
+.note .note-ct {
+  padding: 10px;
+  outline: none;
+  color: #757980;
+  /* &.one:before{
+      content: '';
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      height: 50px;
+      overflow: hidden;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2),
+      0 8px 0 -3px #efb04e, 
+      0 9px 1px -3px rgba(0, 0, 0, 0.2), 
+      0 16px 0 -6px #efb04e, 
+      0 17px 2px -6px rgba(0, 0, 0, 0.2);
+    }
+    &.two:before{
+      content: '';
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      height: 50px;
+      overflow: hidden;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2),
+      0 8px 0 -3px #e672a2, 
+      0 9px 1px -3px rgba(0, 0, 0, 0.2), 
+      0 16px 0 -6px #e672a2, 
+      0 17px 2px -6px rgba(0, 0, 0, 0.2);
+    }
+    &.three:before{
+      content: '';
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      height: 50px;
+      overflow: hidden;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2),
+      0 8px 0 -3px #f2eb67, 
+      0 9px 1px -3px rgba(0, 0, 0, 0.2), 
+      0 16px 0 -6px #f2eb67, 
+      0 17px 2px -6px rgba(0, 0, 0, 0.2);
+    }
+    &.four:before{
+      content: '';
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      height: 50px;
+      overflow: hidden;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2),
+      0 8px 0 -3px #d15a39, 
+      0 9px 1px -3px rgba(0, 0, 0, 0.2), 
+      0 16px 0 -6px #d15a39, 
+      0 17px 2px -6px rgba(0, 0, 0, 0.2);
+    }
+    &.five:before{
+      content: '';
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      height: 50px;
+      overflow: hidden;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2),
+      0 8px 0 -3px #d0d25c, 
+      0 9px 1px -3px rgba(0, 0, 0, 0.2), 
+      0 16px 0 -6px #d0d25c, 
+      0 17px 2px -6px rgba(0, 0, 0, 0.2);
+    }
+    &.six:before{
+      content: '';
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      height: 50px;
+      overflow: hidden;
+      box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2),
+      0 8px 0 -3px #5591d2, 
+      0 9px 1px -3px rgba(0, 0, 0, 0.2), 
+      0 16px 0 -6px #5591d2, 
+      0 17px 2px -6px rgba(0, 0, 0, 0.2);
+    }*/
+}
+.note .note-info {
+  height: 30px;
+  border-top: 1px solid #ddd;
+}
+.note .username {
   display: inline-block;
-  max-width: 160px;
-  color: #eee;
-  padding: 5px;
+  height: 100%;
+  line-height: 30px;
+  max-width: 100px;
+  font-size: 12px;
+  color: #989898;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+  padding-left: 8px;
 }
-.note .note-head .username:before {
+.note .username:before {
   content: '\7559\8A00\4EBA\FF1A';
 }
-.note .note-ct {
-  padding: 10px;
-  background-color: #efb04e;
-  outline: none;
-}
-.note .note-ct.one:before {
-  content: '';
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  height: 50px;
-  overflow: hidden;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 8px 0 -3px #efb04e, 0 9px 1px -3px rgba(0, 0, 0, 0.2), 0 16px 0 -6px #efb04e, 0 17px 2px -6px rgba(0, 0, 0, 0.2);
-}
-.note .note-ct.two:before {
-  content: '';
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  height: 50px;
-  overflow: hidden;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 8px 0 -3px #e672a2, 0 9px 1px -3px rgba(0, 0, 0, 0.2), 0 16px 0 -6px #e672a2, 0 17px 2px -6px rgba(0, 0, 0, 0.2);
-}
-.note .note-ct.three:before {
-  content: '';
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  height: 50px;
-  overflow: hidden;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 8px 0 -3px #f2eb67, 0 9px 1px -3px rgba(0, 0, 0, 0.2), 0 16px 0 -6px #f2eb67, 0 17px 2px -6px rgba(0, 0, 0, 0.2);
-}
-.note .note-ct.four:before {
-  content: '';
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  height: 50px;
-  overflow: hidden;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 8px 0 -3px #d15a39, 0 9px 1px -3px rgba(0, 0, 0, 0.2), 0 16px 0 -6px #d15a39, 0 17px 2px -6px rgba(0, 0, 0, 0.2);
-}
-.note .note-ct.five:before {
-  content: '';
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  height: 50px;
-  overflow: hidden;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 8px 0 -3px #d0d25c, 0 9px 1px -3px rgba(0, 0, 0, 0.2), 0 16px 0 -6px #d0d25c, 0 17px 2px -6px rgba(0, 0, 0, 0.2);
-}
-.note .note-ct.six:before {
-  content: '';
-  position: absolute;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  height: 50px;
-  overflow: hidden;
-  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 8px 0 -3px #5591d2, 0 9px 1px -3px rgba(0, 0, 0, 0.2), 0 16px 0 -6px #5591d2, 0 17px 2px -6px rgba(0, 0, 0, 0.2);
-}
 .note .note-time {
+  display: block;
+  float: right;
+  height: 100%;
+  line-height: 30px;
   text-align: right;
-  padding-right: 10px;
-  color: #eee;
+  padding-right: 8px;
+  color: #989898;
+  font-size: 12px;
 }
 .note .delete {
   position: absolute;
   top: 4px;
   right: 4px;
   font-size: 20px;
-  color: #fff;
+  color: #a2a9ba;
   cursor: pointer;
   opacity: 0;
   transition: opacity .3s;
 }
 .draggable {
-  opacity: 0.8;
+  opacity: 0.9;
   cursor: move;
   transition: none;
+  z-index: 99;
 }
